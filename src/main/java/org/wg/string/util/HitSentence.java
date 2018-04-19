@@ -16,6 +16,8 @@ import org.apache.commons.lang3.StringUtils;
  *
  */
 public class HitSentence {
+	
+	
 	/**
 	 * 获得标红的命中句
 	 * @param content
