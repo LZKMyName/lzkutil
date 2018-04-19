@@ -3,4 +3,290 @@
   <groupId>org.wg</groupId>
   <artifactId>lzkutil</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  
+  
+  
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>4.1.7.RELEASE</spring.version>
+		<cxf.version>3.1.1</cxf.version>
+		<elasticsearch.plugin.name>sql</elasticsearch.plugin.name>
+		<elasticsearch.plugin.site>true</elasticsearch.plugin.site>
+		<elasticsearch.plugin.jvm>true</elasticsearch.plugin.jvm>
+		<elasticsearch.version>2.3.4</elasticsearch.version>
+		<elasticsearch.plugin.classname>org.elasticsearch.plugin.nlpcn.SqlPlug</elasticsearch.plugin.classname>
+		
+	</properties>
+	
+  <dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.18.1-GA</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.101tec</groupId>
+			<artifactId>zkclient</artifactId>
+			<version>0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>3.4.6</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>io.netty</groupId>
+		    <artifactId>netty</artifactId>
+		    <version>3.10.6.Final</version>
+		</dependency>
+		<!-- ############### elasticsearch sql start -->
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.vividsolutions</groupId>
+			<artifactId>jts</artifactId>
+			<version>1.13</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch</artifactId>
+			<version>${elasticsearch.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>fastjson</artifactId>
+		    <version>1.2.20</version>
+		</dependency>
+		<!--################# elasticsearch sql end -->
+	   <!--  <dependency>  
+	        <groupId>com.fusionsight</groupId> 
+	        <artifactId>local</artifactId>  
+	        <version>1.0</version>  
+	        <scope>system</scope>  
+	        <systemPath>${project.basedir}/lib/dubbo/fusionsight-common-1.0.jar</systemPath>  
+	    </dependency>   -->
+	   <!--   <dependency>  
+	        <groupId>com.fusionsight</groupId>  
+	        <artifactId>local</artifactId>  
+	        <version>1.0</version>  
+	        <scope>system</scope>  
+	        <systemPath>${project.basedir}/lib/dubbo/fusionsight-common-1.0.jar</systemPath>  
+	    </dependency>  
+	     <dependency>  
+	        <groupId>com.es</groupId>  
+	        <artifactId>delete</artifactId>  
+	        <version>1.0</version>  
+	        <scope>system</scope>  
+	        <systemPath>${project.basedir}/lib/elastic/deleteByQuery.jar</systemPath>  
+	    </dependency>  
+	    <dependency>  
+	        <groupId>com.es</groupId>  
+	        <artifactId>druid</artifactId>  
+	        <version>1.0</version>  
+	        <scope>system</scope>  
+	        <systemPath>${project.basedir}/lib/elastic/druid.jar</systemPath>  
+	    </dependency>  
+	    <dependency>  
+	        <groupId>com.es</groupId>  
+	        <artifactId>sql</artifactId>  
+	        <version>1.0</version>  
+	        <scope>system</scope>  
+	        <systemPath>${project.basedir}/lib/elastic/elasticsearch-sql-2.3.4.0.jar</systemPath>  
+	    </dependency>  
+	     <dependency>  
+	        <groupId>com.jackson</groupId>  
+	        <artifactId>core</artifactId>  
+	        <version>2.5.3</version>  
+	        <scope>system</scope>  
+	        <systemPath>${project.basedir}/lib/jackson/jackson-core-2.5.3.jar</systemPath>  
+	    </dependency>  
+		<dependency>  
+	        <groupId>com.jackson</groupId>  
+	        <artifactId>core</artifactId>  
+	        <version>2.8.1</version>  
+	        <scope>system</scope>  
+	        <systemPath>${project.basedir}/lib/jackson/jackson-core-2.8.1.jar</systemPath>  
+	    </dependency>  
+	    <dependency>  
+	        <groupId>com.jackson</groupId>  
+	        <artifactId>asl</artifactId>  
+	        <version>1.9.12</version>  
+	        <scope>system</scope>  
+	        <systemPath>${project.basedir}/lib/jackson/jackson-core-asl-1.9.12.jar</systemPath>  
+	    </dependency>  
+	    <dependency>  
+	        <groupId>com.jackson</groupId>  
+	        <artifactId>cbor</artifactId>  
+	        <version>2.8.1</version>  
+	        <scope>system</scope>  
+	        <systemPath>${project.basedir}/lib/jackson/jackson-dataformat-cbor-2.8.1.jar</systemPath>  
+	    </dependency>  
+	    <dependency>  
+	        <groupId>com.jackson</groupId>  
+	        <artifactId>smile</artifactId>  
+	        <version>2.8.1</version>  
+	        <scope>system</scope>  
+	        <systemPath>${project.basedir}/lib/jackson/jackson-dataformat-smile-2.8.1.jar</systemPath>  
+	    </dependency> 
+	     <dependency>  
+	        <groupId>com.jackson</groupId>  
+	        <artifactId>yaml</artifactId>  
+	        <version>2.8.1</version>  
+	        <scope>system</scope>  
+	        <systemPath>${project.basedir}/lib/jackson/jackson-dataformat-yaml-2.8.1.jar</systemPath>  
+	    </dependency>
+	     <dependency>  
+	        <groupId>com.jackson</groupId>  
+	        <artifactId>jaxrs</artifactId>  
+	        <version>1.9.12</version>  
+	        <scope>system</scope>  
+	        <systemPath>${project.basedir}/lib/jackson/jackson-jaxrs-1.9.12.jar</systemPath>  
+	    </dependency>
+	     <dependency>  
+	        <groupId>com.jackson</groupId>  
+	        <artifactId>asl</artifactId>  
+	        <version>1.9.12</version>  
+	        <scope>system</scope>  
+	        <systemPath>${project.basedir}/lib/jackson/jackson-mapper-asl-1.9.12.jar</systemPath>  
+	    </dependency > 
+	     <dependency>  
+	        <groupId>com.jackson</groupId>  
+	        <artifactId>xc</artifactId>  
+	        <version>1.9.12</version>  
+	        <scope>system</scope>  
+	        <systemPath>${project.basedir}/lib/jackson/jackson-xc-1.9.12.jar</systemPath>  
+	    </dependency >  -->
+	    
+		<!-- <dependency>  
+	        <groupId>com.jackson</groupId>  
+	        <artifactId>xc</artifactId>  
+	        <version>1.9.12</version>  
+	        <scope>system</scope>  
+	        <systemPath>${project.basedir}/lib/JFinal/jfinal-3.0-bin.jar</systemPath>  
+	    </dependency >  -->
+		<!-- <dependency>  
+	        <groupId>com.redis</groupId>  
+	        <artifactId>api</artifactId>  
+	        <version>1.0</version>  
+	        <scope>system</scope>  
+	        <systemPath>${project.basedir}/lib/redis-service-api.jar</systemPath>  
+	    </dependency>
+	     
+	    <dependency>  
+	        <groupId>com.trans</groupId>  
+	        <artifactId>baidu</artifactId>  
+	        <version>1.0</version>  
+	        <scope>system</scope>  
+	        <systemPath>${project.basedir}/lib/translateBaidu.jar</systemPath>  
+	    </dependency > 
+	    <dependency>  
+	        <groupId>com.zh</groupId>  
+	        <artifactId>Converter</artifactId>  
+	        <version>11.0</version>  
+	        <scope>system</scope>  
+	        <systemPath>${project.basedir}/lib/ZHConverter.jar</systemPath>  
+	    </dependency > 
+	    <dependency> 
+			<groupId>wg_wenhai_fm</groupId>
+		  <artifactId>wg_wenhai_fm</artifactId>
+		  <version>0.0.1-SNAPSHOT</version>
+		 
+   </dependency > -->
+   <dependency>
+    <groupId>commons-collections</groupId>
+    <artifactId>commons-collections</artifactId>
+    <version>3.2.1</version>
+</dependency>
+<dependency>
+		<groupId>dom4j</groupId>
+		<artifactId>dom4j</artifactId>
+		<version>1.6.1</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi</artifactId>
+	    <version>3.14</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi-ooxml</artifactId>
+	    <version>3.14</version>
+	</dependency>
+	    <dependency>
+	    	<groupId>io.jboot</groupId>
+	    	<artifactId>jboot</artifactId>
+	    	<version>1.3.6</version>
+	    	<exclusions>
+	    		<exclusion>
+	    			<groupId>io.netty</groupId>
+	    			<artifactId>netty-all</artifactId>
+	    		</exclusion>
+	    		<exclusion>
+	    			<groupId>org.jboss.netty</groupId>
+	    			<artifactId>netty</artifactId>
+	    		</exclusion>
+
+	    		<exclusion>
+	    			<groupId>com.codahale.metrics</groupId>
+	    			<artifactId>metrics-core</artifactId>
+	    		</exclusion>
+	    	</exclusions>
+	    </dependency>
+  </dependencies>
+  
 </project>
